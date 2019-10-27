@@ -7,5 +7,5 @@ class Acronym
         end
         return acronym
     end
-    puts abbreviate ("Something - I made up from thin  air")
+    puts abbreviate ("Something - I made up from thin  air ")
 end
