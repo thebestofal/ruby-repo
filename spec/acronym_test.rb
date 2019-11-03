@@ -1,5 +1,5 @@
 require_relative("../lib/acronym")
-RSpec.describe Acronym do
+describe Acronym do
   it("basic") do
     expect(Acronym.abbreviate("Portable Network Graphics")).to(eq("PNG"))
   end
