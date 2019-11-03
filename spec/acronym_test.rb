@@ -1,6 +1,6 @@
+require("minitest/autorun")
 require_relative("../lib/acronym")
-
-RSpec.describe Acronym do
+class AcronymTest < Minitest::Test
   it("basic") do
     expect(Acronym.abbreviate("Portable Network Graphics")).to(eq("PNG"))
   end
