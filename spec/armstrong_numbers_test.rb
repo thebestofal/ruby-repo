@@ -1,6 +1,6 @@
 require("minitest/autorun")
 require_relative("../lib/armstrong_numbers")
-describe ArmstrongNumbers do
+RSpec.describe ArmstrongNumbers do
   it("zero is an armstrong number") do
     expect(ArmstrongNumbers.include?(0)).to(eq(true))
   end

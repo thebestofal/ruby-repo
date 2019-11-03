@@ -1,5 +1,5 @@
 require_relative("../lib/alphametics")
-describe Alphametics do
+RSpec.describe Alphametics do
   it("puzzle with three letters") do
     puzzle = "I + BB == ILL"
     expected = { "B" => 9, "I" => 1, "L" => 0 }
