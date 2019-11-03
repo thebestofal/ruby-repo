@@ -1,8 +1,7 @@
-source 'https://rubygems.org'
-gem 'bundler'
-group :test do
-gem 'rake', ">=13.0.0"
-gem 'simplecov', '~> 0.17.1', require: false
-gem 'rspec'
-gem 'minitest'
-end
+source "https://rubygems.org"
+gem "minitest", ">= 5.12.2"
+gem "rspec", ">= 3.9.0"
+gem "rake", ">=13.0.0"
+gem 'parallel_tests', '~> 2.7', '>= 2.7.1'
+
+
