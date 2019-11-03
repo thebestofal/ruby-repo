@@ -15,5 +15,3 @@ class WordProblem
     end
 end
 
-problem = WordProblem.new("What is 1 plus 1?")
-puts problem.answer
