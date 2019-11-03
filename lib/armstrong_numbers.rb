@@ -12,8 +12,3 @@ module ArmstrongNumbers
     end
     module_function :include?   
 end
-
-
-puts ArmstrongNumbers.include? 0
-puts 153/10%10
-puts 15%10
