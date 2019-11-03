@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'high_scores'
+require_relative '../lib/high_scores'
 
 # Common test data version: 5.0.0 7dfb96c
 class HighScoresTest < Minitest::Test

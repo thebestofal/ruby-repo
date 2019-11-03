@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'clock'
+require_relative '../lib/clock'
 
 # Common test data version: 2.4.0 b344762
 class ClockTest < Minitest::Test

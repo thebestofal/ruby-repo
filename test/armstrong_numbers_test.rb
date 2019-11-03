@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'armstrong_numbers'
+require_relative '../lib/armstrong_numbers'
 
 # Common test data version: 1.1.0 b3c2522
 class ArmstrongNumbersTest < Minitest::Test

@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'gigasecond'
+require_relative '../lib/gigasecond'
 
 # Common test data version: 1.1.0 5506bac
 class GigasecondTest < Minitest::Test
