@@ -1,4 +1,3 @@
-require("minitest/autorun")
 require_relative("../lib/acronym")
 RSpec.describe Acronym do
   it("basic") do
