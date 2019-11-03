@@ -1,57 +1,46 @@
 class WordProblem
-    attr_reader :string
   
-    OPERATOR = {
-      'plus' => '+',
-      'minus' => '-',
-      'multiply' => '*',
-      'divided' => '/'
-    }
-  
-    def initialize(string)
-      #require 'pry';binding.pry
-      @string = string
-      @digits = find_digit.split.count
-      #raise ArgumentError if invalid?
-    end
-  
-    def answer
-    
-     result = if @digits == 2
-        two_digit
-      elsif @digits == 3
-        three_digit
-        elsif @digits < 2
-          raise ArgumentError, "error" if invalid?
-      end
-      eval(result)
-    end
-  
-    def find_digit
-      string.gsub(/[^\d\-]/, ' ')
-    end
-  
-    def find_operation
-      operator = %w(plus minus multiply divided)
-      string.split(' ').select do |word|
-        operator.include?(word)
-      end
-    end
-  
-    def two_digit
-      first, second = find_digit.split(' ')
-      operator = OPERATOR[find_operation.first]
-      [first,operator,second].join(' ')
-    end
-  
-    def three_digit
-      first, second, third = find_digit.split(' ')
-      first_operator = OPERATOR[find_operation.first]
-      second_operator = OPERATOR[find_operation[1]]
-      [first,first_operator,second,second_operator,third].join(' ')
-    end
-  
-    def invalid?
-      @digits < 2
-    end
+  OPERATOR_REGEX  = /plus|minus|divided\sby|multiplied\sby/
+  POSITIVE_OR_NEGATIVE_REGEX =  /-?\d+|\d+/
+  OPERATORS = {
+    :+ => "plus", 
+    :- => "minus", 
+    :/ => "divided\sby", 
+    :* => "multiplied\sby"
+  }
+
+  attr_reader :question
+
+  def initialize(question)
+    @question = question
+    raise ArgumentError unless valid?
   end
+
+  def answer
+    recursive_answer(convert_operators, 0, 2, nil)
+  end
+
+  private
+  def recursive_answer(array, x, y, answer)
+    return answer if y >= array.length
+
+    calc     = array[(x..y)]
+    answer ||= calc[0]
+    answer   = answer.send(calc[1], calc[2])
+
+    recursive_answer(array, x+2, y+2, answer)
+  end
+
+  def to_a
+    question.scan(/#{POSITIVE_OR_NEGATIVE_REGEX}|#{OPERATOR_REGEX}/)
+  end
+
+  def convert_operators
+    to_a.map { |x| OPERATORS.key(x) || x.to_i }
+  end
+
+  def valid?
+    !question.scan(/#{OPERATOR_REGEX}/).empty?
+  end
+
+end
