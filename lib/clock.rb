@@ -1,17 +1,25 @@
 class Clock
-    attr_reader :hour, :minute
-    def self.new(hour: "00", minute: "00")
-        @hour = (hour.to_i + minute.to_i / 60) % 24
-        @minute = minute % 60
-        "0"*(@hour.to_s.length % 2) + @hour.to_s +
-         ":" +"0"*(@minute.to_s.length % 2) + @minute.to_s
+    attr_reader :minutes
+    def initialize(hour: 0, minute: 0)
+      minutes_per_hour = hour * 60
+      @minutes = (minutes_per_hour + minute) % 1440
     end
-
+  
+    def to_s
+      Time.at(@minutes * 60).utc.strftime("%H:%M")
+    end
+  
     def +(other)
-        @hour = hour + other.hour
-        @minute = minute + other.minute
-        self.new
+      @minutes = @minutes + other.minutes
+      self
     end
-end
-
-#Clock.new hour:8
+  
+    def -(other)
+      @minutes = @minutes - other.minutes
+      self
+    end
+  
+    def ==(other)
+      minutes == other.minutes
+    end
+  end
