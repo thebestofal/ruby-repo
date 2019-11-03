@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require_relative 'sum_of_multiples'
+require_relative '../lib/sum_of_multiples'
 
 # Common test data version: 1.4.1 8f89751
 class SumOfMultiplesTest < Minitest::Test
