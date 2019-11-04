@@ -1,4 +1,3 @@
-require("minitest/autorun")
 require_relative("../lib/armstrong_numbers")
 RSpec.describe ArmstrongNumbers do
   it("zero is an armstrong number") do
