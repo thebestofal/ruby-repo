@@ -1,5 +1,5 @@
 require_relative("../lib/word_count")
-RSpec.describe WordCount do
+RSpec.describe Phrase do
   it("count one word") do
     phrase = Phrase.new("word")
     counts = { "word" => 1 }
