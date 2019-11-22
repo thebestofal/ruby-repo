@@ -4,7 +4,6 @@ env:
    - CC_TEST_REPORTER_ID=6a44e1dbf87f11ae299054765e88b020273c43db72817ea8cfc0e0caa0ea9726
 language: ruby
 rvm:
-  - 2.3.8
   - 2.5.2
   - 2.6.2
 before_install:
